@@ -3,9 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 import pickle
 import numpy as np
 from pydantic import BaseModel
+import os
 
 # Load the trained model
-MODEL_PATH = r"C:\greenbite\backend\sustainability_model.pkl"
+MODEL_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "sustainability_model.pkl")
 
 try:
     with open(MODEL_PATH, "rb") as model_file:
