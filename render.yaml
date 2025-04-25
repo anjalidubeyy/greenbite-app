@@ -2,8 +2,8 @@ services:
   - type: web
     name: greenbite-api
     env: python
-    buildCommand: pip install -r backend/requirements.txt
-    startCommand: uvicorn ml_api.ml_api_fastapi:app --host 0.0.0.0 --port $PORT
+    buildCommand: pip install -r requirements.txt
+    startCommand: cd backend && uvicorn ml_api.ml_api_fastapi:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0 
