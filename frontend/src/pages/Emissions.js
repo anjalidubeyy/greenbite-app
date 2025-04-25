@@ -17,7 +17,6 @@ const Emissions = () => {
     console.log("Recipe name:", recipeName); // Debug recipe name
     const emissionsData = state.emissionsData || { breakdown: {}, total_emissions: 0 };
     const selectedIngredients = state.selectedIngredients || [];
-    const searchQuery = state.searchQuery || "";
 
     const [error, setError] = useState(null);
     const [sustainabilityScore, setSustainabilityScore] = useState(null);
@@ -56,7 +55,7 @@ const Emissions = () => {
         };
 
         fetchSustainabilityScore();
-    }, [recipeName, emissionsData, selectedIngredients]);
+    }, [state.recipeName, emissionsData, selectedIngredients]);
 
     const emissionsBreakdown = emissionsData.breakdown;
     const totalEmissions = emissionsData.total_emissions;
