@@ -1,1 +1,1 @@
-web: cd backend && uvicorn ml_api.ml_api_fastapi:app --host 0.0.0.0 --port $PORT 
+web: cd backend && uvicorn ml_api_fastapi:app --host 0.0.0.0 --port $PORT 
