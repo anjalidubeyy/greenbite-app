@@ -20,7 +20,7 @@ app = FastAPI()
 # Enable CORS for frontend (React)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Change to "*" for testing but NOT in production
+    allow_origins=["http://localhost:3000", "https://greenbite-app.onrender.com"],  # Allow both local and production domains
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

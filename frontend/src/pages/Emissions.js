@@ -44,7 +44,7 @@ const Emissions = () => {
 
         const fetchSustainabilityScore = async () => {
             try {
-                const response = await axios.post('http://127.0.0.1:8000/predict', requestData);
+                const response = await axios.post('https://greenbite-api.onrender.com/predict', requestData);
                 // Cap the score at 5.0 and format it to 1 decimal place
                 const score = response.data.sustainability_score;
                 const cappedScore = typeof score === 'number' ? Math.min(5.0, score) : 3.0;
