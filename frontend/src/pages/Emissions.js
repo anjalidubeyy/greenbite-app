@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Bar, Pie } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from "chart.js";
@@ -15,8 +15,9 @@ const Emissions = () => {
     console.log("Location state:", state); // Debug state
     const recipeName = state.recipeName || "Emissions Report";
     console.log("Recipe name:", recipeName); // Debug recipe name
-    const emissionsData = state.emissionsData || { breakdown: {}, total_emissions: 0 };
-    const selectedIngredients = state.selectedIngredients || [];
+
+    const emissionsData = useMemo(() => state.emissionsData || { breakdown: {}, total_emissions: 0 }, [state.emissionsData]);
+    const selectedIngredients = useMemo(() => state.selectedIngredients || [], [state.selectedIngredients]);
 
     const [error, setError] = useState(null);
     const [sustainabilityScore, setSustainabilityScore] = useState(null);
@@ -58,7 +59,6 @@ const Emissions = () => {
     }, [state.recipeName, emissionsData, selectedIngredients]);
 
     const emissionsBreakdown = emissionsData.breakdown;
-    const totalEmissions = emissionsData.total_emissions;
     const emissionsEquivalence = emissionsData.emissions_equivalence || {
         car_distance: 0,
         smartphone_charges: 0,

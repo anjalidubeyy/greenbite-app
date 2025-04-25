@@ -57,7 +57,7 @@ const Results = () => {
             // 🛠️ Ensure ingredients are in list format
             if (Array.isArray(recipe.ingredients)) {
                 selectedIngredients = recipe.ingredients.map(ing =>
-                    ing.trim().replace(/[\[\]"]/g, "")
+                    ing.trim().replace(/[[\]"]/g, "")
                 ).filter(Boolean);
             } else {
                 try {
