@@ -1,0 +1,1 @@
+file_to_use=df.to_csv("file_path1", index=False, compression="gzip")
